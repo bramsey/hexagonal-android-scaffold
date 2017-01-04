@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Injector.get().inject(this);
+        Injector.get(this).inject(this);
 
         mMainPresenter.loadView(this);
     }

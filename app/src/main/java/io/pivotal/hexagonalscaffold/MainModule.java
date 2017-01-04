@@ -13,9 +13,10 @@ public class MainModule {
 
     @Singleton
     @Provides
-    ItemRepository provideItemRepository() {
-        return new AndroidItemRepository();
+    ItemRepository provideItemRepository(AndroidItemRepository androidItemRepository) {
+        return androidItemRepository;
     }
+
 
     @Singleton
     @Provides
