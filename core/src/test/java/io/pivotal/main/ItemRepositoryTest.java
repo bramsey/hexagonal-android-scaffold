@@ -9,7 +9,7 @@ public abstract class ItemRepositoryTest {
 
     private ItemRepository subject;
 
-    abstract ItemRepository getRepository();
+    public abstract ItemRepository getRepository();
 
     @Before
     public void setUp() {
