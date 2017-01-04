@@ -39,5 +39,6 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+    testCompile "org.robolectric:robolectric:3.1.4"
     testCompile project(path: ":core", configuration: 'testArtifacts')
 }
