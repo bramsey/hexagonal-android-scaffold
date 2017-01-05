@@ -27,5 +27,28 @@ artifacts {
  * END TEST ARTIFACT CONFIG
  */
 
+compileJava {
+    options.compilerArgs << "-s"
+    options.compilerArgs << "$projectDir/src/generated/java"
+
+    doFirst {
+        // make sure that directory exists
+        file(new File(projectDir, "/src/generated/java")).mkdirs()
+    }
+}
+
+clean.doLast {
+    // clean-up directory when necessary
+    file(new File(projectDir, "/src/generated")).deleteDir()
+}
+
+sourceSets {
+    generated {
+        java {
+            srcDir "$projectDir/src/generated/java"
+        }
+    }
+}
+
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
