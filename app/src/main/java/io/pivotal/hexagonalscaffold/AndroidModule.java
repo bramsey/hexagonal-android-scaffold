@@ -3,6 +3,8 @@ package io.pivotal.hexagonalscaffold;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -19,8 +21,8 @@ public class AndroidModule {
 
     @Singleton
     @Provides
-    AndroidItemRepository provideAndroidItemRepository(SharedPreferences sharedPreferences) {
-        return new AndroidItemRepository(sharedPreferences);
+    AndroidItemRepository provideAndroidItemRepository(SharedPreferences sharedPreferences, Gson gson) {
+        return new AndroidItemRepository(sharedPreferences, gson);
     }
 
     @Singleton

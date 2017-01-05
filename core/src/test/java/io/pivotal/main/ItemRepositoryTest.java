@@ -20,8 +20,8 @@ public abstract class ItemRepositoryTest {
     public void savesAndFindsItems() {
         assertThat(subject.findAll()).isEmpty();
 
-        subject.save(new Item("name1", "val1"));
-        subject.save(new Item("name2", "val2"));
+        subject.save(ImmutableItem.builder().name("name1").val("val1").build());
+        subject.save(ImmutableItem.builder().name("name2").val("val2").build());
 
         assertThat(subject.findAll().get(0).getName()).isEqualTo("name1");
         assertThat(subject.findAll().get(1).getName()).isEqualTo("name2");

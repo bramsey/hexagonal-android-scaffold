@@ -32,7 +32,10 @@ public class MainPresenterTest {
 
     @Test
     public void loadView_displaysItemsOnView() {
-        mItemRepository.save(new Item("name", "val"));
+        mItemRepository.save(ImmutableItem.builder()
+                .name("name")
+                .val("val")
+                .build());
 
         subject.loadView(view);
 

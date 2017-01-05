@@ -14,13 +14,14 @@ import io.pivotal.main.ItemRepository;
 public class AndroidItemRepository implements ItemRepository {
 
     private static final String ITEMS_KEY = "items";
-    private Gson mGson = new Gson();
+    private final Gson mGson;
 
     private SharedPreferences mSharedPreferences;
     private Type mItemListType = new TypeToken<List<Item>>(){}.getType();
 
-    public AndroidItemRepository(SharedPreferences sharedPreferences) {
+    public AndroidItemRepository(SharedPreferences sharedPreferences, Gson gson) {
         mSharedPreferences = sharedPreferences;
+        mGson = gson;
     }
 
     @Override

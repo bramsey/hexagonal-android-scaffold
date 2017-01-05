@@ -1,19 +1,12 @@
 package io.pivotal.main;
 
-public class Item {
-    private String name;
-    private String val;
+import org.immutables.gson.Gson;
+import org.immutables.value.Value;
 
-    public Item(String name, String val) {
-        this.name = name;
-        this.val = val;
-    }
+@Value.Immutable
+@Gson.TypeAdapters
+public interface Item {
+    String getName();
 
-    public String getName() {
-        return name;
-    }
-
-    public String getVal() {
-        return val;
-    }
+    String getVal();
 }
