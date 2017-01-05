@@ -30,6 +30,14 @@ artifacts {
  * END TEST ARTIFACT CONFIG
  */
 
+/**
+ * GENERATED CODE CONFIG:
+ *
+ * By default, Android Studio cannot find code generated inside of non-Android modules.
+ *
+ * This code moves generated code to a folder structure that Android Studio
+ * expects.
+ */
 compileJava {
     options.compilerArgs << "-s"
     options.compilerArgs << "$projectDir/src/generated/java"
@@ -52,6 +60,9 @@ sourceSets {
         }
     }
 }
+/**
+ * END GENERATED CODE CONFIG
+ */
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
