@@ -11,6 +11,6 @@ import io.pivotal.main.CoreModule;
         AndroidAdaptersModule.class,
         CoreModule.class
 })
-public interface MainComponent {
-    void inject(MainActivity mainActivity);
+public interface ExampleComponent {
+    void inject(ExampleActivity exampleActivity);
 }

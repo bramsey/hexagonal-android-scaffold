@@ -4,15 +4,15 @@ import android.content.Context;
 
 public class Injector {
 
-    private static MainComponent mainComponent;
+    private static ExampleComponent exampleComponent;
 
-    public static MainComponent get(Context context) {
-        if (mainComponent == null) {
-            mainComponent = DaggerMainComponent.builder()
+    public static ExampleComponent get(Context context) {
+        if (exampleComponent == null) {
+            exampleComponent = DaggerExampleComponent.builder()
                     .androidModule(new AndroidModule(context))
                     .build();
         }
 
-        return mainComponent;
+        return exampleComponent;
     }
 }

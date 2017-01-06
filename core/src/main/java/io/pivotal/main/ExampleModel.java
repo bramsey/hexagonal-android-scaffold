@@ -5,7 +5,7 @@ import org.immutables.value.Value;
 
 @Value.Immutable
 @Gson.TypeAdapters
-public interface Item {
+public interface ExampleModel {
     String getName();
 
     String getVal();

@@ -7,5 +7,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = {TestAdaptersModule.class, CoreModule.class})
 public interface TestComponent {
-    void inject(MainPresenterTest mainPresenterTest);
+    void inject(ExamplePresenterTest examplePresenterTest);
 }

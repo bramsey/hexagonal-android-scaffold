@@ -8,16 +8,16 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import io.pivotal.main.ItemRepository;
+import io.pivotal.main.ExampleModelRepository;
 
 @Module
 public class AndroidAdaptersModule {
 
     @Singleton
     @Provides
-    ItemRepository provideItemRepository(SharedPreferences sharedPreferences,
-                                         Gson gson) {
-        return new AndroidItemRepository(sharedPreferences, gson);
+    ExampleModelRepository provideItemRepository(SharedPreferences sharedPreferences,
+                                                 Gson gson) {
+        return new AndroidExampleModelRepository(sharedPreferences, gson);
     }
 
 }

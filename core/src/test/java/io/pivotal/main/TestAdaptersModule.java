@@ -10,7 +10,7 @@ public class TestAdaptersModule {
 
     @Provides
     @Singleton
-    ItemRepository provideItemRepository() {
-        return new InMemoryItemRepository();
+    ExampleModelRepository provideItemRepository() {
+        return new InMemoryExampleModelRepository();
     }
 }

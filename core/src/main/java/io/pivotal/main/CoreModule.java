@@ -13,15 +13,15 @@ public class CoreModule {
 
     @Provides
     @Singleton
-    public MainPresenter provideMainPresenter(ItemRepository itemRepository) {
-        return new MainPresenter(itemRepository);
+    public ExamplePresenter provideMainPresenter(ExampleModelRepository exampleModelRepository) {
+        return new ExamplePresenter(exampleModelRepository);
     }
 
     @Singleton
     @Provides
     public Gson provideGson() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapterFactory(new GsonAdaptersItem());
+        gsonBuilder.registerTypeAdapterFactory(new GsonAdaptersExampleModel());
         return gsonBuilder.create();
     }
 

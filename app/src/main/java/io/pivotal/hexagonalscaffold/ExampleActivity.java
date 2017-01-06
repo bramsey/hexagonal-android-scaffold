@@ -9,13 +9,13 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-import io.pivotal.main.Item;
-import io.pivotal.main.MainPresenter;
-import io.pivotal.main.MainView;
+import io.pivotal.main.ExampleModel;
+import io.pivotal.main.ExamplePresenter;
+import io.pivotal.main.ExampleView;
 
-public class MainActivity extends AppCompatActivity implements MainView {
+public class ExampleActivity extends AppCompatActivity implements ExampleView {
 
-    @Inject MainPresenter mMainPresenter;
+    @Inject ExamplePresenter mExamplePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +24,19 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         Injector.get(this).inject(this);
 
-        mMainPresenter.loadView(this);
+        mExamplePresenter.loadView(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mMainPresenter.unloadView();
+        mExamplePresenter.unloadView();
     }
 
     @Override
-    public void loadItems(List<Item> items) {
-        for (Item item : items) {
-            String text = String.format(Locale.US, "%s: %s", item.getName(), item.getVal());
+    public void loadItems(List<ExampleModel> exampleModels) {
+        for (ExampleModel exampleModel : exampleModels) {
+            String text = String.format(Locale.US, "%s: %s", exampleModel.getName(), exampleModel.getVal());
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         }
     }

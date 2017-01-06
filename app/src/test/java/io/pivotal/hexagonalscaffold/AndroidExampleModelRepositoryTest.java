@@ -8,16 +8,16 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
 import io.pivotal.main.CoreModule;
-import io.pivotal.main.ItemRepository;
-import io.pivotal.main.ItemRepositoryTest;
+import io.pivotal.main.ExampleModelRepository;
+import io.pivotal.main.ExampleModelRepositoryTest;
 
 @RunWith(RobolectricTestRunner.class)
-public class AndroidItemRepositoryTest extends ItemRepositoryTest {
+public class AndroidExampleModelRepositoryTest extends ExampleModelRepositoryTest {
 
     @Override
-    public ItemRepository getRepository() {
+    public ExampleModelRepository getRepository() {
         Context context = RuntimeEnvironment.application;
         SharedPreferences sharedPreferences = context.getSharedPreferences("default", 0);
-        return new AndroidItemRepository(sharedPreferences, new CoreModule().provideGson());
+        return new AndroidExampleModelRepository(sharedPreferences, new CoreModule().provideGson());
     }
 }

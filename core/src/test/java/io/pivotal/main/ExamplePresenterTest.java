@@ -17,34 +17,34 @@ import static org.mockito.Mockito.verify;
 
 @SuppressWarnings("WeakerAccess")
 @RunWith(MockitoJUnitRunner.class)
-public class MainPresenterTest {
+public class ExamplePresenterTest {
 
-    @Mock MainView view;
-    @Captor ArgumentCaptor<List<Item>> captor;
+    @Mock ExampleView view;
+    @Captor ArgumentCaptor<List<ExampleModel>> captor;
 
-    @Inject ItemRepository itemRepository;
+    @Inject ExampleModelRepository mExampleModelRepository;
 
-    MainPresenter subject;
+    ExamplePresenter subject;
 
     @Before
     public void setUp() {
         DaggerTestComponent.builder().build().inject(this);
-        subject = new MainPresenter(itemRepository);
+        subject = new ExamplePresenter(mExampleModelRepository);
     }
 
     @Test
     public void loadView_displaysItemsOnView() {
-        ImmutableItem expectedItem = ImmutableItem.builder()
+        ImmutableExampleModel expectedItem = ImmutableExampleModel.builder()
                 .name("name")
                 .val("val")
                 .build();
-        itemRepository.save(expectedItem);
+        mExampleModelRepository.save(expectedItem);
 
         subject.loadView(view);
 
         verify(view).loadItems(captor.capture());
-        List<Item> actualItems = captor.getValue();
-        assertThat(actualItems).containsExactly(expectedItem);
+        List<ExampleModel> actualExampleModels = captor.getValue();
+        assertThat(actualExampleModels).containsExactly(expectedItem);
     }
 
 }
