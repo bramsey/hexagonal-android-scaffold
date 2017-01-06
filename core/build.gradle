@@ -1,10 +1,18 @@
+plugins {
+    id "net.ltgt.apt" version "0.5"
+}
+
 apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'me.tatarka.retrolambda'
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'org.immutables:value:2.3.10'
+    apt 'org.immutables:value:2.3.10'
+
     compile 'org.immutables:gson:2.3.10'
+    apt 'org.immutables:gson:2.3.10'
 
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-all:1.10.19'
@@ -28,40 +36,6 @@ artifacts {
 }
 /**
  * END TEST ARTIFACT CONFIG
- */
-
-/**
- * GENERATED CODE CONFIG:
- *
- * By default, Android Studio cannot find code generated inside of non-Android modules.
- *
- * This code moves generated code to a folder structure that Android Studio
- * expects.
- */
-compileJava {
-    options.compilerArgs << "-s"
-    options.compilerArgs << "$projectDir/src/generated/java"
-
-    doFirst {
-        // make sure that directory exists
-        file(new File(projectDir, "/src/generated/java")).mkdirs()
-    }
-}
-
-clean.doLast {
-    // clean-up directory when necessary
-    file(new File(projectDir, "/src/generated")).deleteDir()
-}
-
-sourceSets {
-    generated {
-        java {
-            srcDir "$projectDir/src/generated/java"
-        }
-    }
-}
-/**
- * END GENERATED CODE CONFIG
  */
 
 sourceCompatibility = "1.8"
