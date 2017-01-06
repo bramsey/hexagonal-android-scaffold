@@ -20,13 +20,12 @@ public abstract class ItemRepositoryTest {
     public void savesAndFindsItems() {
         assertThat(subject.findAll()).isEmpty();
 
-        subject.save(ImmutableItem.builder().name("name1").val("val1").build());
-        subject.save(ImmutableItem.builder().name("name2").val("val2").build());
+        ImmutableItem item1 = ImmutableItem.builder().name("name1").val("val1").build();
+        ImmutableItem item2 = ImmutableItem.builder().name("name2").val("val2").build();
 
-        assertThat(subject.findAll().get(0).getName()).isEqualTo("name1");
-        assertThat(subject.findAll().get(1).getName()).isEqualTo("name2");
+        subject.save(item1);
+        subject.save(item2);
 
-        assertThat(subject.findAll().get(0).getVal()).isEqualTo("val1");
-        assertThat(subject.findAll().get(1).getVal()).isEqualTo("val2");
+        assertThat(subject.findAll()).containsExactly(item1, item2);
     }
 }
